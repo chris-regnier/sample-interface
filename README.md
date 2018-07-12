@@ -6,22 +6,25 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## Docker Conventions
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This project uses an NGinX webserver to access production build assets. Compiled image runs `~109MB`.
 
-## Build
+No tests are run and no environment is considered.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+> Note: If you're on a __Windows__ machine and set to check out system line endings (`CRLF`) you may have to save the `./nginx/default.conf` file with __*nix__ line endings (`LF`)
 
-## Running unit tests
+To run on your local machine at [http://localhost/](), run something like: 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+cd [path/to/repo]
+docker build -t sample-interface .
+##
+##              remove the container when it exits
+##            /    bind to the default HTTP port
+##           |    /            use a convenient alias
+##           |   |           /
+docker run --rm -p 80:80 --name sample-interface sample-interface
+## press [Ctrl+C] to stop, or in another console run
+docker stop sample-interface
+```
