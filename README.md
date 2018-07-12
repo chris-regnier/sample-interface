@@ -8,13 +8,15 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Docker Conventions
 
+[Dockerfile](./Dockerfile)
+
 This project uses an NGinX webserver to access production build assets. Compiled image runs `~109MB`.
 
 No tests are run and no environment is considered.
 
 > Note: If you're on a __Windows__ machine and set to check out system line endings (`CRLF`) you may have to save the `./nginx/default.conf` file with __*nix__ line endings (`LF`)
 
-To run on your local machine at [http://localhost/](), run something like: 
+To run on your local machine at [http://localhost/](http://localhost/), run something like: 
 
 ```
 cd [path/to/repo]
